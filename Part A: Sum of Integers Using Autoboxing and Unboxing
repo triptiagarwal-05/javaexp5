@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class AutoboxingSum {
+
+    public static void main(String[] args) {
+        String[] stringInputs = {"10", "25", "42", "100", "5"};
+        List<Integer> integerList = new ArrayList<>();
+
+        for (String str : stringInputs) {
+            try {
+                int primitiveInt = Integer.parseInt(str);
+                integerList.add(primitiveInt);
+            } catch (NumberFormatException e) {
+                System.err.println("Could not parse input string: " + str);
+            }
+        }
+        
+        int totalSum = 0;
+        for (Integer wrapperInt : integerList) {
+            totalSum += wrapperInt;
+        }
+
+        System.out.println("Final Sum of all integers is: " + totalSum);
+    }
+}
